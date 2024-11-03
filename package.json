@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "type": "commonjs",
   "scripts": {
+    "commit":"git-cz",
     "test": "jest",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -26,9 +27,14 @@
   "homepage": "https://github.com/Amanp30/ap-breadcrumb#readme",
   "devDependencies": {
     "@eslint/js": "9.14.0",
+    "commitizen": "4.3.1",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "9.14.0",
     "globals": "15.11.0",
     "jest": "29.7.0",
     "semantic-release": "24.2.0"
+  },
+  "czConfig":{
+      "path":"node_modules/cz-conventional-changelog"
   }
 }
