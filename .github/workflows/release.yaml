@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    tags:
-      - 'v*'  # Triggers on tags like v1.0.0
+    branches:
+      - main
 
 jobs:
   release:
@@ -16,17 +16,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # Use the Node.js version you need
-          registry-url: 'https://registry.npmjs.org/'  # Set the npm registry
+          node-version: '16'  # or the version you need
+          registry-url: 'https://registry.npmjs.org/'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test  # Adjust this if your test command is different
-
       - name: Run Semantic Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}          # NPM token for publishing
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
