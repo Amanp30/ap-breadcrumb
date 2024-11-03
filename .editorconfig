@@ -1,0 +1,28 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# General settings for all files
+[*]
+indent_style = space        # Use spaces for indentation
+indent_size = 2             # 2 spaces for indentation
+end_of_line = lf            # Use LF for new lines
+charset = utf-8             # Set character set to UTF-8
+trim_trailing_whitespace = true  # Trim trailing whitespace
+insert_final_newline = true # Ensure files end with a newline
+max_line_length = 120       # Maximum line length
+
+# JavaScript files
+[*.js]
+indent_size = 2             # Use 2 spaces for indentation in JavaScript files
+quote_type = single         # Prefer single quotes
+
+# JSON files
+[*.json]
+indent_style = space        # Use spaces for indentation in JSON files
+indent_size = 2             # 2 spaces for indentation
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false  # Do not trim trailing whitespace in Markdown files
