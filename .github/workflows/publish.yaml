@@ -10,20 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4  # Ensure you're using v4
+      - name: Checkout current branch
+        uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4  # Ensure you're using v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'  # or the version you need
-          registry-url: 'https://registry.npmjs.org/'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Semantic Release
-        env:
-          GITHUB_TOKEN: ${{ env.MY_GITHUB_TOKEN }}  # Access the environment variable
-          NPM_TOKEN: ${{ env.NPM_TOKEN }}        # Access the environment variable
+      - name: Build package
+        run: npm run build
+
+      - name: Semantic Release
         run: npx semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
