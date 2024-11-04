@@ -1,6 +1,6 @@
 {
   "name": "ap-breadcrumb",
-  "version": "0.0.0-development",
+  "version": "0.0.0-semantically-released",
   "description": "A simple library that returns a JSON-LD object containing structured data for breadcrumb navigation, making it easy to enhance your website's SEO with minimal effort.",
   "main": "lib/index.js",
   "type": "commonjs",
